@@ -1,0 +1,36 @@
+A. Redux Yapısını Kurmak (Structure)
+
+    1. İhtiyaç duyulan kütüphanelerin yüklenmesi
+        - npm install redux
+        - npm instal react-redux
+    2. Redux klasör yapısının kurulması
+    3. store'da saklanacak statelerin belirlenmesi:
+        - Uygulamayı yazarken birden çok component'ta ihtiyaç duyabileceğim
+        bir state var mı? Yani şu state merkezi bir yerde olsa ve ben istediğim
+        component'tan bu state'e ulaşabilsem çok güzel olur dediğimiz stateleri
+        store'a alacağız.
+    4. !!!!!!! ÇOK ÖNEMLİ !!!!!!
+        - STORE'DA BULUNAN HER BİR STATE İÇİN FARKLI BİR REDUCER OLMALIDIR.
+    5. Redux Yapısı Kurulurken öncelikle en temel haliyle bir reducer yazılır.
+        - Reducer bir fonksiyondan ibarettir. iki tane parametre alır.
+        state ve action. state isimli parametreye bir başlangıç değeri atanmalıdır.
+    6. store oluşturulması:
+        - store.js dosyasında store oluşturma adımları şu şekildedir:
+        a. redux kütüphanesi içerisinden createStore isimli fonksiyon import edilir.
+        b. yetkili olarak oluşturduğumuz reducer'lar import edilir.
+        c. import edilen reducerlar kök bir reducer içerisinde birleştirilir.
+        (rootReducer). bu birleştirme işlemi redux kütüphanesi içerisindeki
+        combineReducers isimli fonksiyonla yapılır.
+        d. store oluşturulur ve export edilir.
+    7. Artık bu aşamada redux alt yapısı kurulmuş oldu. Ancak react uygulamamızın
+    bu alt yapıdan henüz haberi yok. Şimdi oluşturduğumuz bu store'u uygulamamıza
+    tanıtalım. Tanıtma işlemi içi şu adımları izleyebiliriz:
+     a. index.js içerisinde REACT-REDUX kütüphanesi içerisinden Provider isimli
+     özel yetenekli bir component import edilir.
+     b. App component'ı Provider isimli component ile sarmalanır. store isminde
+     bir prop alır. İşte bu prop'a kendi oluşturduğumuz state'i vermeliyiz.
+     c. oluşturduğumuz store import edilir.
+     **** Artık bu adımı da yaptıktan sonra projede redux alt yapısı kurulmuş
+     ve projeye TANITILMIŞTIR.
+
+B. Redux Yapısı Kurulduktan Sonra Uygulamadaki İşleyişi

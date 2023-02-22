@@ -23,7 +23,8 @@ const AddTodoForm = () => {
         id: String(new Date().getTime()),
         text: todoText,
         date: new Date(),
-        isDone: false
+        isDone: false,
+        active: true
     }
     dispatch({type:"ADD_TODO",payload:newTodo})
     setTodoText("")

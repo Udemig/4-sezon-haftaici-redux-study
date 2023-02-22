@@ -11,13 +11,14 @@ import SingleTodo from "./SingleTodo";
 const ListTodos = () => {
   const storeStates = useSelector((state) => state);
   console.log(storeStates);
+  const activeTodos=storeStates.todosState.filter(item => item.active === true)
   return (
     <div>
-      {storeStates.todosState.length === 0 ? (
+      {activeTodos.length === 0 ? (
         <p>There is no todos yet.</p>
       ) : (
         <>
-          {storeStates.todosState.map((item, index) => (
+          {activeTodos.map((item, index) => (
             <SingleTodo todo={item} key={index} />
           ))}
         </>
